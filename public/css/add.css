@@ -1,0 +1,30 @@
+.add-form{
+    justify-content: center;
+    padding: 2%;
+    font-size: x-large;
+}
+.div{
+    color: darkcyan;
+}
+button{
+    cursor: pointer;
+    width: max-content;
+    text-align: center;
+    padding: 5px 10px;
+    border: 0;
+    outline: none;
+    border-radius: 20px;
+    background-color: rgb(33, 33, 141);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: bisque;
+}
+.errors{
+    color: rgb(255, 0, 0);
+    background-color: black;
+    font-size: large;
+    border-radius: 20px;
+    text-align: center;
+    width: fit-content;
+    padding: 5px;
+}

@@ -1,0 +1,135 @@
+*{
+    outline: none;
+    scroll-behavior:smooth;
+    user-select: none;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Poppins' , sans-serif;
+}
+:root{
+    --bg-color: #15202B;
+    --sec-bg-color: #192734;
+    --font-color:#ffffff;
+    --add-color: #22303C;
+    --hover:#8899A6;
+}
+#website{
+    color: var(--font-color);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: 3.3rem;
+    animation: 1.5s 0s infinite running ColorChange;
+}
+html{
+    overflow-x: hidden;
+    font-size: 62.5%;   
+}
+body{
+    background: var(--sec-bg-color);
+
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+}
+#header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    height: 5.5rem;
+}
+#icon{
+    font-size: 4rem;
+    color: floralwhite;
+    cursor: default;
+}
+#nav a{
+    font-size: 2.5rem;
+    margin-left: 4rem;
+    color: var(--font-color);
+    transition: .3s;
+}
+#nav a:hover,
+#nav a.active{
+    color: var(--hover);
+}
+section{
+    padding: 3rem 9%;
+    min-height: 42vh;
+    color: var(--font-color);
+    font-size: x-large;
+    font-weight: 700;
+}
+#home-contact{
+    display: contents;
+    padding-inline: 1;
+}
+#span1{
+    color: sandybrown;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 5rem;
+}
+#texycontent{
+    display: flex;
+    color: var(--font-color);
+    font-size: large;
+    justify-content: space-around;
+    background-image:url(public\Source\1123.jpg);
+    padding: 3rem;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#sideleft,#sideright,#main{
+    width:22% ;
+    border: 3px solid rgb(69, 45, 207) ;
+    padding: 3rem;
+    border-radius: 20px;
+    background-color: #00000036;
+}
+#sideleft,#sideright{
+    height: fit-content;
+}
+#footer{
+    background-color: var(--bg-color);
+    display:flex; flex-direction:row; 
+    justify-content:space-evenly;
+    margin-top: auto;
+}
+#copyright{
+    margin-top: 1rem;
+    width: 80%;
+    color: var(--font-color);
+    font-size: small;
+    font-family: 'Poppins' , sans-serif ;
+    padding-left: 20rem;
+    text-align: center;
+    
+}
+.social{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: var(--font-color);
+    border: 3px solid rgb(69, 45, 207);
+    border-radius: 1.5rem;
+    padding: .3rem;
+    transition: .3s;
+    background-color:var(--bg-color) ;
+    margin: 0.5rem;
+}
+.social:hover{
+    background-color:rgba(0, 0, 0, 0.808)
+}
+@keyframes ColorChange{
+    50%{color: var(--hover);}
+}
