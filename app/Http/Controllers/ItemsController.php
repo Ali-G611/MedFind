@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use App\Models\Categorys;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,8 +14,8 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        $items= Item::latest()->paginate(5);
-        return view('pages.request',compact('items'))->with('i',(request()->input('page',1) -1) * 5);
+        $items= Item::latest()->simplePaginate(22);
+        return view('items.index',compact('items'));
     }
 
     /**
@@ -23,8 +23,8 @@ class ItemsController extends Controller
      */
     public function create()
     {
-        $categories = Categorys::all();
-        return view('pages.add',compact('categories'));
+        $categories = Category::all();
+        return view('items.create',compact('categories'));
     }
 
     /**
@@ -34,7 +34,7 @@ class ItemsController extends Controller
     {
          //dd($request->all());
         $request->validate([
-            'item_name'=>'required',
+            'name'=>'required',
             'expire_date'=>'required',
             'price'=>'required',
             'photo'=>'required|image|mimes:jpg,jpeg,png|max:20000',
@@ -56,7 +56,7 @@ class ItemsController extends Controller
      */
     public function show(Item $item)
     {
-        return view('pages.show',compact('item'));
+        return view('items.show',compact('item'));
     }
 
     /**
@@ -64,8 +64,8 @@ class ItemsController extends Controller
      */
     public function edit(Item $item)
     {
-        $categories = Categorys::all();
-        return view('pages.edit',compact('item','categories'));
+        $categories = Category::all();
+        return view('items.edit',compact('item','categories'));
     }
 
     /**
@@ -74,7 +74,7 @@ class ItemsController extends Controller
     public function update(Request $request, Item $item)
     {
         $request->validate([
-            'item_name'=>'required',
+            'name'=>'required',
             'expire_date'=>'required',
             'price'=>'required',
             'photo'=>'image|mimes:jpg,jpeg,png|max:20000',

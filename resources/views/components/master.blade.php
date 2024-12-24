@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="Source/capsule-solid-24.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{asset('css/add.css')}}">
-    <link rel="stylesheet" href="{{asset('css/Request.css')}}">
     <link rel="stylesheet" href="{{asset('css/Style.css')}}">
 </head>
 <header id="header">
@@ -22,7 +21,7 @@
 </header>
 
 <body>
-    @yield('body')
+    {{$slot}}
 </body>
 
 <footer id="footer">

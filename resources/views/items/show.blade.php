@@ -1,6 +1,5 @@
+<x-master>
 <link rel="stylesheet" href="{{asset('css/show.css')}}">
-@extends('layouts.master')
-@section('body')
 
 <div class="myproduct">
     <img src="myproduct-image.jpg" alt="myproduct Image">
@@ -12,4 +11,4 @@
     </div>
 </div>
 
-@endsection
+</x-master>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('item_name',length:30)->nullable();
+            $table->string('name',length:30)->nullable();
             $table->date('expire_date')->nullable();
             $table->unsignedInteger('price')->nullable();
             $table->boolean('prescription_requirment')->default(0);
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->string('details')->nullable();
             $table->string('photo')->nullable();
             $table->foreignId('category_id')->references('id')->on('categorys')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -11,4 +11,12 @@ class Item extends Model
     protected $fillable = [
         'item_name','expire_date','price','prescription_requirment','photo','details','category_id'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
