@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,12 +14,13 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->date('birth')->nullable(false);
-            $table->char('phone',length:10)->nullable(false);
-            $table->string('first_name',length:20)->nullable(false);
-            $table->string('last_name',length:20)->nullable(false);
-            $table->unsignedInteger('balance')->nullable(false);
-            $table->string('location',length:100)->nullable(false);
+            $table->date('birth')->nullable();
+            $table->char('phone',length:20)->nullable();
+            $table->string('first_name',length:20)->nullable();
+            $table->string('last_name',length:20)->nullable();
+            $table->unsignedInteger('balance')->nullable();
+            $table->string('location',length:200)->nullable();
+            $table->foreignIdFor(User::class)->nullable();
             $table->timestamps();
         });
     }

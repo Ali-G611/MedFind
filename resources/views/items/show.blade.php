@@ -1,5 +1,4 @@
 <x-master>
-<link rel="stylesheet" href="{{asset('css/show.css')}}">
 
 <div class="myproduct">
     <img src="myproduct-image.jpg" alt="myproduct Image">

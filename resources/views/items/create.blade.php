@@ -1,5 +1,5 @@
 <x-master>
-
+    <link rel="stylesheet" href="{{ asset('css/add.css') }}">
     <form action="{{ route('items.store') }}" method="post" class="add-form" enctype="multipart/form-data">
         @csrf
         <div class="div">

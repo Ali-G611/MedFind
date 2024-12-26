@@ -22,8 +22,8 @@
                             @method('delete')
                             <button class="button" type="submit">Delete</button>
                         </form>
-                        <a class="button" href="{{ route('items.edit', $item->id) }}">Update</a>
-                        <a class="button" href="{{ route('items.show', $item->id) }}">Show</a>
+                        <a style="text-decoration: none" class="button" href="{{ route('items.edit', $item->id) }}">Update</a>
+                        <a style="text-decoration: none" class="button" href="{{ route('items.show', $item->id) }}">Show</a>
                     </div>
             </div>
         @endforeach

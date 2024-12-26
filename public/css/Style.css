@@ -56,6 +56,7 @@ body{
     margin-left: 4rem;
     color: var(--font-color);
     transition: .3s;
+    text-decoration: none;
 }
 #nav a:hover,
 #nav a.active{
@@ -104,6 +105,10 @@ section{
     justify-content:space-evenly;
     margin-top: auto;
 }
+.form-label{
+    color: white;
+    font-size: medium;
+}
 #copyright{
     margin-top: 1rem;
     width: 80%;
@@ -125,7 +130,8 @@ section{
     padding: .3rem;
     transition: .3s;
     background-color:var(--bg-color) ;
-    margin: 0.5rem;
+    margin: auto;
+    text-decoration: none;
 }
 .social:hover{
     background-color:rgba(0, 0, 0, 0.808)
