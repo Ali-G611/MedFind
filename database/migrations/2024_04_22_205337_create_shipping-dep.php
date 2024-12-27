@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shipping-dep',function (Blueprint $table) {
-            $table->string('governorate',length:30)->primary();
+        Schema::create('shipping_dep',function (Blueprint $table) {
+            $table->id();
+            $table->string('governorate',length:30);
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shipping-dep');
+        Schema::dropIfExists('shipping_dep');
     }
 };

@@ -14,13 +14,13 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('name',length:30)->nullable();
-            $table->date('expire_date')->nullable();
-            $table->unsignedInteger('price')->nullable();
+            $table->string('name',30);
+            $table->date('expire_date');
+            $table->unsignedInteger('price');
             $table->boolean('prescription_requirment')->default(0);
             $table->unsignedInteger('on_stock_quantity')->nullable();
-            $table->string('details')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('details');
+            $table->string('photo');
             $table->foreignId('category_id')->references('id')->on('categorys')->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

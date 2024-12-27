@@ -15,10 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('supply_price')->nullable(false);
             $table->string('supply_name',length:50)->nullable(false);
-            $table->string('governorate');
-            $table->foreign('governorate')->references('governorate')->on('shipping-dep');
-            $table->string('supplier_id');
-            $table->foreign('supplier_id')->references('supplier_id')->on('supplier');
+            $table->foreignId('dep_id')->constrained('shipping_dep');
+            $table->foreignId('supplier_id')->constrained('supplier');
             $table->timestamps();
         });
     }

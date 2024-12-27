@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('deliver-employee',function (Blueprint $table) {
+        Schema::create('deliver_employee',function (Blueprint $table) {
             $table->id();
             $table->string('name',length:50)->nullable(false);
             $table->unsignedInteger('wage')->nullable(false);
             $table->string('address',length:100)->nullable(false);
-            $table->string('governorate');
-            $table->foreign('governorate')->references('governorate')->on('shipping-dep')->onDelete('cascade');
+            $table->foreignId('dep_id')->constrained('shipping_dep');
             $table->timestamps();
         });
     }
