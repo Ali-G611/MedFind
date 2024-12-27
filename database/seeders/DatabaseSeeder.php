@@ -25,9 +25,10 @@ class DatabaseSeeder extends Seeder
         foreach($categorys as $category){
             Category::create(['name'=>$category]);
         }
-        $existingCate = Category::all();
-        Item::factory(5)->create([
-            'category_id' => $existingCate->random()->id,
+        $existingCate = Category::all()->pluck('id');
+        foreach($existingCate as $cate)
+        Item::factory()->create([
+            'category_id' => $cate,
         ]);
     }
 }

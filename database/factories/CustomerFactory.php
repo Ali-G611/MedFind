@@ -23,7 +23,6 @@ class CustomerFactory extends Factory
         'location' => fake()->address(),
         'phone' => fake()->phoneNumber(),
         'birth' => fake()->date(),
-        'user_id' => 1
         ];
     }
 }
