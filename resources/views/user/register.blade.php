@@ -53,6 +53,20 @@
                             </div>
 
                             <div class="form-group" style="margin:2rem;">
+                                <label style="font-size: large;color: white;display:block"
+                                    for="password">Password Confirmation</label>
+                                <input style="font-size: medium" id="password" type="password"
+                                    class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation"
+                                    required autocomplete="current-password">
+                                @error('password_confirmation')
+                                    <div class="invalid-feedback"
+                                        style="color:red;font-size: small;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group" style="margin:2rem;">
                                 <button style="font-size: medium" type="submit" class="btn btn-primary btn-block">
                                     Sign in
                                 </button>

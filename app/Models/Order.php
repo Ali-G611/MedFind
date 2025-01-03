@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'total_cost','shipping_dep_id','deliver_date'
+    ];
     public function customer(){
         return $this->belongsTo(Customer::class);
     }

@@ -15,6 +15,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('items',ItemsController::class);
     Route::resource('user',UserContoller::class)->only(['show','update','destroy']);
     Route::resource('customer',CustomerController::class)->only(['store','update']);
+    Route::post('/order/{item}',[CustomerController::class,'order'])->name('customer.order');
 });
 
 Route::controller(UserContoller::class)->group(function() {

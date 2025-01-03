@@ -36,7 +36,7 @@
                                     Login
                                 </button>
                             </div>
-                            <a href="{{ route('register') }}" style="font-size: medium; color: rgb(189, 64, 189);">
+                            <a href="{{ route('register') }}" style="font-size: larger; color: rgb(189, 64, 189);">
                                 Don't Have An Account?
                             </a>
                         </form>

@@ -17,9 +17,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->date('order_date')->nullable(false);
+            $table->date('order_date')->nullable(false)->default(today());
             $table->date('deliver_date')->nullable();
-            $table->unsignedInteger('total_cost')->nullable(false);
+            $table->integer('total_cost',unsigned:true);
+            $table->enum('status',['ordered','waiting']);
             $table->foreignIdFor(Customer::class);
             $table->foreignIdFor(ShippingDep::class);
             $table->timestamps();

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class UserContoller extends Controller
 {
+    use AuthorizesRequests;
+
     public function show()
     {
         $a_user = User::with('customer')->findOrFail(auth()->id());
@@ -17,6 +19,7 @@ class UserContoller extends Controller
 
     public function update(User $user, Request $request)
     {
+        $this->authorize('update',$user);
         $credentials = $request->validate([
             'name' => 'max:40|string',
             'email' => 'email|max:60',
@@ -28,13 +31,16 @@ class UserContoller extends Controller
 
     public function destroy(User $user)
     {
+        $this->authorize('delete',$user);
+
         Auth::logout();
         $user->delete();
         return view('user.login');
     }
 
-    public function logout()
+    public function logout(User $user)
     {
+        $this->authorize('logout',$user);
         Auth::logout();
         return redirect()->route('login');
     }
@@ -68,7 +74,7 @@ class UserContoller extends Controller
         $credentials = $request->validate([
             'name' => 'required|max:40|string',
             'email' => 'email|required|max:60',
-            'password' => 'required|max:60|min:8'
+            'password' => 'required|max:60|min:8|confirmed',
         ]);
         $user = User::create($credentials);
         Auth::login($user);

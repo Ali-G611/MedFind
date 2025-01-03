@@ -15,7 +15,7 @@ class ShippingDepSeeder extends Seeder
     {
         $cites = ['aleppo', 'damascus', 'homs', 'latakia', 'daraa'];
         foreach($cites as $city){
-            ShippingDep::factory()->create([
+            ShippingDep::create([
                 'governorate' => $city,
             ]);
         }

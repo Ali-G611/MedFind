@@ -21,7 +21,7 @@ class ItemFactory extends Factory
         return [
             'name' => fake()->name(),
             'expire_date' => fake()->date(),
-            'price' => fake()->randomFloat(2),
+            'price' => fake()->randomFloat(min:0,max:100,nbMaxDecimals:2),
             'prescription_requirment' => fake()->randomElement(['0', '1']),
             'on_stock_quantity' => fake()->randomNumber(2),
             'details' => fake()->text(50),

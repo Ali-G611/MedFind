@@ -6,9 +6,11 @@ use App\Models\Item;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ItemsController extends Controller
 {
+    use AuthorizesRequests; // Include this trait
     /**
      * Display a listing of the resource.
      */
@@ -56,6 +58,7 @@ class ItemsController extends Controller
      */
     public function show(Item $item)
     {
+        $this->authorize('view', $item);
         return view('items.show',compact('item'));
     }
 
@@ -64,6 +67,7 @@ class ItemsController extends Controller
      */
     public function edit(Item $item)
     {
+        $this->authorize('edit', $item);
         $categories = Category::all();
         return view('items.edit',compact('item','categories'));
     }
@@ -100,7 +104,8 @@ class ItemsController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Item $item)
-    { 
+    {
+        $this->authorize('delete', $item);
         if ($item->photo)
             Storage::disk('public')->delete('images/items/' . $item->photo);
         $item->delete();

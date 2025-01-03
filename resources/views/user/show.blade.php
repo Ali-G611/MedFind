@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="col-12">
-                    <button style="font-size: medium" type="submit" class="btn btn-primary">Add</button>
+                    <button style="font-size: medium" type="submit" class="btn btn-primary">Update</button>
                 </div>
 
 
