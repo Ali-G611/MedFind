@@ -12,4 +12,10 @@ class ShippingDep extends Model
     public function orders(){
         return $this->hasMany(Order::class);
     }
+    public function deliver_employee(){
+        return $this->hasMany(DeliverEmployee::class);
+    }
+    public function supply(){
+        return $this->belongsToMany(Supplier::class,'supply','dep_id');
+    }
 }

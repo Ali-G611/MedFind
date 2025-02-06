@@ -14,13 +14,13 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->date('birth')->nullable();
-            $table->char('phone',length:20)->nullable();
-            $table->string('first_name',length:20)->nullable();
-            $table->string('last_name',length:20)->nullable();
-            $table->unsignedInteger('balance')->nullable();
-            $table->string('location',length:200)->nullable();
-            $table->foreignIdFor(User::class)->nullable();
+            $table->date('birth');
+            $table->char('phone',length:20);
+            $table->string('first_name',length:20);
+            $table->string('last_name',length:20);
+            $table->unsignedInteger('balance');
+            $table->string('location',length:200);
+            $table->foreignIdFor(User::class);
             $table->timestamps();
         });
     }

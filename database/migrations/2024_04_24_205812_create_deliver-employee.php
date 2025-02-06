@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('deliver_employee',function (Blueprint $table) {
             $table->id();
-            $table->string('name',length:50)->nullable(false);
-            $table->unsignedInteger('wage')->nullable(false);
-            $table->string('address',length:100)->nullable(false);
+            $table->string('name',length:50);
+            $table->char('phone',length:20);
+            $table->float('wage',2);
+            $table->string('address',length:100);
             $table->foreignId('dep_id')->constrained('shipping_dep');
             $table->timestamps();
         });

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('expire_date');
             $table->unsignedInteger('price');
             $table->boolean('prescription_requirment')->default(0);
-            $table->unsignedInteger('on_stock_quantity')->nullable();
+            $table->unsignedInteger('on_stock_quantity');
             $table->string('details');
             $table->string('photo');
             $table->foreignId('category_id')->references('id')->on('categorys')->onDelete('cascade');

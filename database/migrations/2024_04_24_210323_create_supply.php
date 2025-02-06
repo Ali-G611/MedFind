@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('supply', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('supply_price')->nullable(false);
-            $table->string('supply_name',length:50)->nullable(false);
+            $table->unsignedInteger('price');
+            $table->string('name',length:50);
             $table->foreignId('dep_id')->constrained('shipping_dep');
             $table->foreignId('supplier_id')->constrained('supplier');
             $table->timestamps();

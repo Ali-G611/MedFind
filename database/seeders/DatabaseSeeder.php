@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Item;
+use App\Models\Supplier;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -30,5 +31,9 @@ class DatabaseSeeder extends Seeder
         Item::factory()->create([
             'category_id' => $cate,
         ]);
+        $supplier = ['UN','Unifarma'];
+        foreach($supplier as $supplier){
+            Supplier::create(['name'=>$supplier,'address'=>'unknown']);
+        }
     }
 }
