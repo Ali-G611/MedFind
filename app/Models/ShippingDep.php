@@ -9,6 +9,7 @@ class ShippingDep extends Model
 {
     use HasFactory;
     protected $table = 'shipping_dep';
+    protected $fillable = ['governorate'];
     public function orders(){
         return $this->hasMany(Order::class);
     }

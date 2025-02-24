@@ -11,10 +11,10 @@ class UserContoller extends Controller
 {
     use AuthorizesRequests;
 
-    public function show()
+    public function show(User $user)
     {
         $a_user = User::with('customer')->findOrFail(auth()->id());
-        return view('user.show',compact('a_user'));
+        return view('user.show',compact('a_user','user'));
     }
 
     public function update(User $user, Request $request)

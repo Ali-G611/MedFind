@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,6 +22,7 @@ class CustomerFactory extends Factory
         'location' => fake()->address(),
         'phone' => fake()->phoneNumber(),
         'birth' => fake()->date(),
+        'balance' => 0,
         ];
     }
 }

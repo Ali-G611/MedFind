@@ -37,7 +37,7 @@ class ItemPolicy
      */
     public function update(User $user, Item $item): bool
     {
-        return $item->user->is($user);
+        return $item->user->is($user) || $user->isAdmin();
     }
 
     /**
@@ -45,7 +45,7 @@ class ItemPolicy
      */
     public function delete(User $user, Item $item): bool
     {
-        return $item->user->is($user);
+        return $item->user->is($user) || $user->isAdmin();
     }
 
     /**
@@ -53,7 +53,7 @@ class ItemPolicy
      */
     public function restore(User $user, Item $item): bool
     {
-        return $item->user->is($user);
+        return $item->user->is($user) || $user->isAdmin();
     }
 
     /**
@@ -61,6 +61,6 @@ class ItemPolicy
      */
     public function forceDelete(User $user, Item $item): bool
     {
-        return $item->user->is($user);
+        return $item->user->is($user) || $user->isAdmin();
     }
 }

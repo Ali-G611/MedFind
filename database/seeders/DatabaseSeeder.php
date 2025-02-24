@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\DeliverEmployee;
 use App\Models\Item;
 use App\Models\Supplier;
 use App\Models\User;
@@ -35,5 +36,6 @@ class DatabaseSeeder extends Seeder
         foreach($supplier as $supplier){
             Supplier::create(['name'=>$supplier,'address'=>'unknown']);
         }
+        DeliverEmployee::factory(10)->create();
     }
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->char('phone',length:20);
             $table->float('wage',2);
             $table->string('address',length:100);
-            $table->foreignId('dep_id')->constrained('shipping_dep');
+            $table->foreignId('dep_id')->constrained('shipping_dep')->onDelete('cascade');
             $table->timestamps();
         });
     }

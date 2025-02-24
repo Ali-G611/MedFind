@@ -32,6 +32,7 @@
 </body>
 
 <footer id="footer" style="">
+    <a class="social" href="/dashboard" style="font-size: small;">DashBoard</a>
     <p id="copyright">you may not reproduce or communicate any of the content on this website, including files
         downloadable from this website, without the permission of the copyright owner.</p>
     <a class="social" href="https://www.facebook.com/A1i.911"><i class='bx bxl-facebook'></i></a>

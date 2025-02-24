@@ -44,5 +44,5 @@
             </div>
         @endforeach
     </div>
-    {!! $items->links() !!}
+    <span style="margin: auto;margin-top: 0.5rem;margin-bottom: 4rem;font-size: larger;">{!! $items->links() !!}</span>
 </x-master>

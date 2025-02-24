@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enums\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -37,6 +39,9 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+    protected $casts = [
+        'role' => Role::class,
+    ];
     protected function casts(): array
     {
         return [
@@ -49,5 +54,10 @@ class User extends Authenticatable
     }
     public function customer(){
         return $this->hasOne(Customer::class);
+    }
+    public function isAdmin(): bool
+    {
+    // Assuming you have a 'role' column that stores the user's role
+        return $this->role == Role::ADMIN;
     }
 }

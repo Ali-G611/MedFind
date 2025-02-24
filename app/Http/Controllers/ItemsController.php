@@ -16,6 +16,7 @@ class ItemsController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Item::class);
         $items= Item::latest()->simplePaginate(22);
         return view('items.index',compact('items'));
     }
@@ -25,6 +26,7 @@ class ItemsController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Item::class);
         $categories = Category::all();
         return view('items.create',compact('categories'));
     }
@@ -50,7 +52,7 @@ class ItemsController extends Controller
             $input['photo']=$storedimage;
         }
         Item::create($input);
-        return redirect()->route('items.index')->with('success','Item Added Successfully');
+        return redirect()->back()->with('success','Item Added Successfully');
     }
 
     /**
@@ -67,7 +69,6 @@ class ItemsController extends Controller
      */
     public function edit(Item $item)
     {
-        $this->authorize('edit', $item);
         $categories = Category::all();
         return view('items.edit',compact('item','categories'));
     }
@@ -77,6 +78,7 @@ class ItemsController extends Controller
      */
     public function update(Request $request, Item $item)
     {
+        $this->authorize('update', $item);
         $request->validate([
             'name'=>'required',
             'expire_date'=>'required',
@@ -97,7 +99,7 @@ class ItemsController extends Controller
             unset ( $input['photo'] );
         }
         $item->update($input);
-        return redirect()->route('items.index')->with('success','Item Updated Successfully');
+        return redirect()->back()->with('success','Item Updated Successfully');
     }
 
     /**
@@ -109,6 +111,6 @@ class ItemsController extends Controller
         if ($item->photo)
             Storage::disk('public')->delete('images/items/' . $item->photo);
         $item->delete();
-        return redirect()->route('items.index')->with('success', 'Item deleted');
+        return redirect()->back()->with('success', 'Item deleted');
     }
 }

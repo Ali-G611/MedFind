@@ -22,4 +22,5 @@ class Item extends Model
     public function cart(){
         return $this->belongsToMany(Order::class,'cart','item_id');
     }
+
 }
